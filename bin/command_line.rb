@@ -6,11 +6,11 @@ def welcome
 end
 
 def inquiry(user)
-  puts "1. Get all recent bills"
+  puts "1. Get all recent bill numbers"
   userimport = gets.chomp
   if userimport == "1"
-    userbilltype = "introduced"
-    user.recent_bills(userbilltype)
+    userbillsorttype = "introduced"
+    user.recent_bill_numbers(userbillsorttype)
   end
 
 end
