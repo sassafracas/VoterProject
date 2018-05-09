@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180508205647) do
+ActiveRecord::Schema.define(version: 20180509181534) do
 
   create_table "bills", force: :cascade do |t|
     t.string "name"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20180508205647) do
   end
 
   create_table "subscriptionlists", force: :cascade do |t|
-    t.string "user_id"
-    t.string "bill_id"
+    t.integer "user_id"
+    t.integer "bill_id"
   end
 
   create_table "users", force: :cascade do |t|
