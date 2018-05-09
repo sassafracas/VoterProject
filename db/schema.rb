@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20180508205647) do
     t.string "sponsors"
   end
 
-  create_table "subscriptionlist", force: :cascade do |t|
+  create_table "subscriptionlists", force: :cascade do |t|
     t.string "user_id"
     t.string "bill_id"
   end

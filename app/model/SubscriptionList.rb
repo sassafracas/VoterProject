@@ -1,4 +1,4 @@
-class UserSubsciption < ActiveRecord::Base
-  has_many :users
-  has_many :bills
+class Subscriptionlist < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :bill
 end

@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :bills, through: :subscriptionlist
+  has_many :subscriptionlists
+  has_many :bills, through: :subscriptionlists
 end
