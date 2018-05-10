@@ -9,13 +9,14 @@ end
 #Inquires what the user wants to do. So far it can only ask if the user wants the recent bills introduced.
 def inquiry(user)
   puts "Please put in the number of the option you desire:
-  1. Get all recent bill numbers
+  1. Get the recent most bill introduced
   2. Search bills by subject matter"
   userimport = gets.chomp
   if userimport == "1"
     userbillsorttype = "introduced"
+    #This gets the most recentbill object and shows it to the user
+    most_recent_bill(userbillsorttype)
     
-
   elsif userimport == "2"
     puts "Please enter the subject matter you're interested in."
     billsubjectmatter = gets.chomp
