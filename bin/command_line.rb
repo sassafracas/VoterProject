@@ -15,12 +15,28 @@ def inquiry(user)
   if userimport == "1"
     userbillsorttype = "introduced"
     #This gets the most recentbill object and shows it to the user
-    most_recent_bill(userbillsorttype)
-    
+    most_recent_bills(userbillsorttype)
+    puts "Would you like to save this bill? Please enter 'yes' or 'no'."
+      response = gets.chomp
+      if response == "yes"
+      user.bills << most_recent_bills(userbillsorttype)
+      puts user.bills.first.name
+      elsif response == "no"
+        inquiry(user)
+      end
+
   elsif userimport == "2"
     puts "Please enter the subject matter you're interested in."
     billsubjectmatter = gets.chomp
-    # user.bill.find_bill_by_subject(billsubjectmatter)
+    find_bill_by_subject(billsubjectmatter)
+    puts "Would you like to save this bill? Please enter 'yes' or 'no'."
+      response = gets.chomp
+      if response == "yes"
+      user.bills << find_bill_by_subject(billsubjectmatter)
+      puts user.bills.first.name
+      elsif response == "no"
+        inquiry(user)
+      end
   else
     puts "Please enter a proper command."
     inquiry(user)
