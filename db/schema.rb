@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509181534) do
+ActiveRecord::Schema.define(version: 2018_05_10_141120) do
 
   create_table "bills", force: :cascade do |t|
     t.string "name"
-    t.string "sponsors"
+    t.string "sponsor"
+    t.string "short_title"
   end
 
   create_table "subscriptionlists", force: :cascade do |t|
