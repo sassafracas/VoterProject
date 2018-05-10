@@ -14,13 +14,14 @@ def inquiry(user)
   3. Show all my bills.
   4. Quit."
   userimport = gets.chomp
-  if userimport == "1"
+  case userimport
+  when "1"
     get_most_recent_bill(user)
-  elsif userimport == "2"
+  when "2"
     search_bill_by_subject(user)
-  elsif userimport == "3"
+  when "3"
     show_all_bills(user)
-  elsif userimport == "4"
+  when "4"
     exit
   end
 end
@@ -72,6 +73,7 @@ end
 def get_most_recent_bill(user)
   userbillsorttype = "introduced"
   most_recent_bills(userbillsorttype)
+  puts most_recent_bills(userbillsorttype).name
   puts "Would you like to save this bill? Please enter 'yes' or 'no'."
   response = gets.chomp
   if response == "yes"
