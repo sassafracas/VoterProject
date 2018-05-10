@@ -10,6 +10,9 @@ end
 def inquiry(user)
   puts "Please put in the number of the option you desire:
   1. Get the recent most bill introduced into the House.
+  1a. Description Test (Simple API Pull)
+  1b. Most Popular Bill Test 
+  1c. Find Bill By Name Test (DB Find)
   2. Search bills by subject matter.
   3. Show all my bills.
   4. Quit."
@@ -17,6 +20,14 @@ def inquiry(user)
   case userimport
   when "1"
     get_most_recent_bill(user)
+  when "1a"
+    bill_slug = "hr5710"
+    bill_descriptions(bill_slug) #works
+  when "1b"
+    puts Bill.most_popular_bill.name #works
+  when "1c"
+    bill_slug = "hr5718"
+    puts Bill.find_bill_by_name(bill_slug).name #works
   when "2"
     search_bill_by_subject(user)
   when "3"
