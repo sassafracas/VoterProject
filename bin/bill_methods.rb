@@ -69,3 +69,21 @@ def bill_descriptions(bill_slug)
   end
 end
 end
+
+#Returns "Active" or "Not Active" when given a bill name (looks it up from the API)
+def find_status_of_my_bill(bill_name)
+  url = "https://api.propublica.org/congress/v1/115/bills/#{bill_name}.json"
+  header = {"X-API-Key": "svHxmNx6wlYOtWDde7AoZQ02O3NGslkT966zrK9L"}
+  bill_status_hash = make_web_request(url, header)
+  bill_status_hash["results"].each do |results_hash|
+    results_hash.select do |key, value|
+      if key == "active"
+        if value == false
+          puts "Not active."
+        elsif value == true
+          puts "Active"
+        end
+      end
+    end
+  end
+end

@@ -11,8 +11,9 @@ def inquiry(user)
   puts "Please put in the number of the option you desire:
   1. Get the recent most bill introduced into the House.
   1a. Description Test (Simple API Pull)
-  1b. Most Popular Bill Test 
+  1b. Most Popular Bill Test
   1c. Find Bill By Name Test (DB Find)
+  1d. Check Status Of Bill
   2. Search bills by subject matter.
   3. Show all my bills.
   4. Quit."
@@ -28,6 +29,11 @@ def inquiry(user)
   when "1c"
     bill_slug = "hr5718"
     puts Bill.find_bill_by_name(bill_slug).name #works
+  when "1d"
+    puts "Please enter the name of the bill you would like to know the status of"
+    bill_slug = gets.chomp
+    bill_name = Bill.find_bill_by_name(bill_slug).name
+    find_status_of_my_bill(bill_name) #works
   when "2"
     search_bill_by_subject(user)
   when "3"
